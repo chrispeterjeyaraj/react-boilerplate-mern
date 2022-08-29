@@ -2,7 +2,7 @@ import { Navigate, useOutlet } from "react-router-dom";
 import { useAuth } from "../../../hooks/useAuth";
 import Layout from "../../containers/Layout/Layout";
 
-export const ProtectedLayout = () => {
+export const ProtectedLayout = (props) => {
   const { user } = useAuth();
   const outlet = useOutlet();
 
@@ -12,9 +12,7 @@ export const ProtectedLayout = () => {
 
   return (
     <div>
-      <Layout outlet= {outlet} pages={[
-          { label: "Dashboard", path: "Dashboard" },
-        ]}/>
+      <Layout outlet= {outlet} pages={props.pages}/>
     </div>
   );
 };
